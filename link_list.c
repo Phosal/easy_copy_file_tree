@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include "link_list.h"
 
-list_node_t *create_new_node(char *node_name, DWORD file_attributes)
+list_node_t *create_new_node(WCHAR *node_name, DWORD file_attributes)
 {
     list_node_t *new_node=(list_node_t *)malloc(sizeof(list_node_t));
-    new_node->name=(char *)malloc(sizeof(char)*(strlen(node_name)+1));
-    strcpy(new_node->name,node_name);
+    new_node->name=(WCHAR *)malloc(sizeof(WCHAR)*(wcslen(node_name)+1));
+    wcscpy(new_node->name,node_name);
     if (file_attributes & FILE_ATTRIBUTE_DIRECTORY)
     {
         new_node->node_type=IS_FOLDER;

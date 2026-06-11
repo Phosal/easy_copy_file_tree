@@ -15,7 +15,7 @@ typedef struct list_node list_node_t;
 
 struct list_node
 {
-    char *name;
+    WCHAR *name;
     node_type_t node_type;
     struct list_node *next_level_node;
     struct list_node *same_level_node;
@@ -25,6 +25,6 @@ struct list_node
     bool is_my_dad_the_last_child;
 };
 
-list_node_t *create_new_node(char *node_name, DWORD file_attributes);
+list_node_t *create_new_node(WCHAR *node_name, DWORD file_attributes);
 
 #endif
